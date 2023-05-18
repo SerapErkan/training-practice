@@ -44,6 +44,7 @@
     <a href="https://www.google.com/"></a>
 
     <!-- sırasız unorder -->
+    <!-- style="list-style-type:disc; disc circle square none -->
     <ul>
       <li>unorder</li>
       <li>unorde</li>
@@ -51,13 +52,21 @@
       <li>unorde</li>
       <li>unorde</li>
     </ul>
-    <!-- sıralı order -->
-    <ol>
+    <!-- sıralı order  type - A -a -I -i  -1-->
+    <!-- start= "50" -->
+
+    <ol type="A">
       <li>order</li>
       <li>order</li>
       <li>order</li>
       <li>order</li>
     </ol>
+
+    <!-- sıralama -->
+    <dl>
+      <dt>coffe</dt>
+      <dd>-black hot drink</dd>
+    </dl>
 
     <br />
     <!-- Table -->
@@ -85,31 +94,48 @@
       </tbody>
     </table>
 
+    <br />
+    <br />
     <!-- form -->
 
-    <form>
+    <form autocomplete="off">
       <label for="name">Adı</label>
       <br />
-      <input id="name" />
+      <input type="text" id="name" required />
       <br />
 
       <label for="lastName">Soyadı</label>
       <br />
-      <input id="lastName" />
+      <input id="lastName" required />
       <br />
       <label for="profession">Meslek</label>
       <br />
-      <input id="profession" />
+      <select id="profession">
+        <option disabled>Seçiminizi yapınız</option>
+        <option>Muhasebe</option>
+        <option>Yazılım</option>
+      </select>
+      <br />
       <br />
 
+      <label for="cars">Choose a car:</label>
+
+      <select id="cars" name="cars" required>
+        <option id="0" value="volvo">Volvo</option>
+        <option id="1" value="saab">Saab</option>
+        <option id="2" value="fiat">Fiat</option>
+        <option id="3" value="audi">Audi</option>
+      </select>
+      <br />
       <label for="salary">Maaş</label>
       <br />
-      <input id="salary" />
+      <input type="number" id="salary" />
       <br />
       <br />
       <hr />
 
-      <button>Kaydet</button>
+      <button type="submit">Kaydet</button>
+      <button type="button">Kaydet</button>
 
       <br /><br /><br />
     </form>
