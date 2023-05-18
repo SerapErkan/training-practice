@@ -38,7 +38,7 @@
     <!-- Bir attribute, etiketin belirli bir özelliğini veya niteliğini tanımlar veya ayarlar. -->
 
     <!-- HTML <img>etiketi, bir görüntüyü bir web sayfasına gömmek için kullanılır. -->
-    <img src="../Home.png" alt="" />
+    <img src="../Home.png" alt="" width="500px" />
 
     <!-- HTML Links - Syntax -->
     <a href="https://www.google.com/"></a>
@@ -58,5 +58,60 @@
       <li>order</li>
       <li>order</li>
     </ol>
+
+    <br />
+    <!-- Table -->
+    <!-- etiketi <caption>bir tablo başlığını tanımlar. -->
+    <!-- Etiket, <table><caption> etiketinden hemen sonra eklenmelidir . -->
+
+    <table>
+      <caption>
+        Tablo başlığını tanımlar
+      </caption>
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>User lastName</th>
+          <th>Order</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Serap</td>
+          <td>Erkan</td>
+          <td>15.000 $</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- form -->
+
+    <form>
+      <label for="name">Adı</label>
+      <br />
+      <input id="name" />
+      <br />
+
+      <label for="lastName">Soyadı</label>
+      <br />
+      <input id="lastName" />
+      <br />
+      <label for="profession">Meslek</label>
+      <br />
+      <input id="profession" />
+      <br />
+
+      <label for="salary">Maaş</label>
+      <br />
+      <input id="salary" />
+      <br />
+      <br />
+      <hr />
+
+      <button>Kaydet</button>
+
+      <br /><br /><br />
+    </form>
   </body>
 </html>
