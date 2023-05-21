@@ -1,0 +1,39 @@
+/* Simple selectors ( elements name, id, class)
+Combinator selectors 
+Pseudo-class selectors 
+Pseudo-elements selectors 
+Attribute selectors */
+
+/* name selectors */
+h1 {
+  color: rgb(8, 7, 7);
+}
+
+/* id selectors */
+
+#name {
+  color: blue;
+}
+
+/*class selectors*/
+
+.name {
+  color: aqua;
+}
+
+/* Açıklama Satırı*/
+
+.color {
+  color: aqua;
+}
+
+#rgb {
+  color: rgb(255, 99, 71);
+}
+
+.hex {
+  color: #c06e6e;
+}
+.hsl {
+  color: hsl(0, 100%, 50%);
+}
