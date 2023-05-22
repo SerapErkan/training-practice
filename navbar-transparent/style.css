@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Mogra", cursive;
+  background-color: white;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
+/* .navbar:hover {
+  background-color: #1414148e;
+} */
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #1414148e;
+  color: whitesmoke;
+  min-height: 50px;
+  width: 100%;
+  overflow: hidden;
+}
+.navbar-logo,
+.navbar-sm-menu {
+  padding: 20px;
+}
+
+.navbar-logo a,
+.navbar-sm-menu a {
+  color: rgb(245, 245, 245);
+  font-size: 40px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.navbar-menu a,
+.navbar-sm-menu a {
+  text-decoration: none;
+  font-size: 20px;
+  padding: 20px 20px 3px 20px;
+}
+
+.navbar-menu a {
+  margin-left: 3px;
+}
+.navbar-menu a:hover {
+  color: rgb(163, 6, 6);
+  font-size: 23px;
+}
+
+.navbar .navbar-sm-menu {
+  display: none;
+}
+.navbar-contact a {
+  margin-left: 5px;
+}
+.navbar-contact a:hover {
+  color: rgb(163, 6, 6);
+}
+
+@media screen and (max-width: 800px) {
+  .navbar-contact {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar .navbar-sm-menu {
+    display: flex;
+  }
+
+  .navbar .navbar-menu {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar {
+    justify-content: space-between;
+    background-color: #1414148e;
+  }
+
+  .navbar.responsive {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: start;
+    background-color: #1414148e;
+  }
+
+  .navbar.responsive .navbar-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar-sm-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .navbar .navbar-logo {
+    width: 100%;
+  }
+
+  .navbar .navbar-menu a:hover {
+    border-radius: 0;
+    background-color: #af0c0c73;
+    color: whitesmoke;
+  }
+  .navbar .navbar-menu a:last-child {
+    margin-bottom: 30px;
+  }
+}
+
+img {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+/*ders de source  */
+/* 
+.navbar-menu,
+.navbar-sm-menu {
+    display: flex;
+    align-items: center;
+}
+ */
