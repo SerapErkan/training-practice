@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.nav {
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #141414;
+  color: aliceblue;
+  z-index: 1;
+}
+
+.nav .nav-link {
+  display: flex;
+  /* gap: 2rem; */
+}
+
+.nav-link li,
+.dropdown-menu li {
+  list-style: none;
+  padding-left: 20px;
+}
+
+a {
+  color: #d85757;
+  text-decoration: none;
+}
+
+a:hover {
+  color: aquamarine;
+}
+
+.action-btn {
+  background-color: aquamarine;
+  color: #141414ef;
+  padding: 1rem;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+.action-btn:hover {
+  scale: 1.09;
+  color: blue;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  background-color: rgb(255, 255, 255);
+  height: 5px;
+  margin: 5px auto;
+}
+
+.toggle-btn {
+  display: none;
+}
+
+.dropdown-menu {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  width: -200px;
+  background-color: rgba(216, 214, 214, 0.5);
+  /* backdrop-filter: blur(15px); */
+  border-radius: 0 0;
+  transition: width 0.5s linear;
+}
+
+.dropdown-menu li {
+  margin-top: 20px;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #141414; */
+
+  width: 100%;
+}
+
+.dropdown-menu .action-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown-menu.open {
+  width: 40%;
+}
+
+@media screen and (max-width: 800px) {
+  .nav .nav-link,
+  .nav .action-btn {
+    display: none;
+  }
+
+  .nav .toggle-btn {
+    display: block;
+  }
+
+  .dropdown-menu.open {
+    display: block;
+  }
+
+  /* .dropdown-menu {
+    display: block;
+  } */
+}
+
+@media screen and (max-width: 600px) {
+  .dropdown-menu {
+    position: absolute;
+    background-color: rgba(10, 12, 10, 0.822);
+    /* backdrop-filter: blur(15px); */
+    border-radius: 0 0;
+  }
+  .dropdown-menu li {
+    width: 100%;
+
+    margin: 0;
+  }
+}
