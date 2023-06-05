@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Serap Erkan" />
+    <meta name="description" content="Chapter-6" />
+
+    <title>Chapter-6</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.cdnfonts.com/css/poppins");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: #eef5fe;
+      }
+
+      .flex {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav_image {
+        display: flex;
+        justify-content: center;
+        min-width: 55px;
+      }
+
+      .nav_image img {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #fff;
+        width: 270px;
+        padding: 15px 10px;
+        transition: all 0.3s ease;
+      }
+
+      .logo_items {
+        gap: 3px;
+      }
+
+      #lock-icon,
+      #sidebar-close {
+        font-size: 25px;
+        padding: 5px;
+        color: #4070f4;
+        cursor: pointer;
+      }
+
+      .logo_name {
+        font-size: 22px;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .menu_container {
+        margin-top: 40px;
+        overflow-y: auto;
+        height: 100%;
+      }
+
+      .menu_title {
+        position: relative;
+        height: 50px;
+        width: 55px;
+      }
+
+      .menu_title .title {
+        margin-left: 15px;
+      }
+
+      .menu_title .line {
+        position: absolute;
+        left: 50%;
+        height: 3px;
+        width: 20px;
+        background: #383737;
+        border-radius: 25px;
+        transform: translate(-50%);
+      }
+
+      .menu_title .line {
+        opacity: 0;
+      }
+
+      .item {
+        list-style: none;
+      }
+
+      .link {
+        text-decoration: none;
+        color: #707070;
+        margin-bottom: 8px;
+      }
+
+      .link:hover {
+        background: #4070f4;
+        color: #fff;
+      }
+
+      .link i {
+        height: 50px;
+        min-width: 55px;
+        display: flex;
+        font-size: 22px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sidebar.close {
+        width: 75px;
+      }
+
+      #sidebar-close {
+        display: none;
+        color: #333;
+      }
+
+      .sidebar.close .logo_name,
+      .sidebar.close #lock-icon,
+      .sidebar.close #sidebar-close,
+      .sidebar.close .title {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .sidebar.close .line {
+        opacity: 1;
+      }
+
+      .sidebar_profile {
+        padding-top: 20px;
+        margin-top: 20px;
+        border-top: 2px solid rgba(0, 0, 0, 0.1);
+        gap: 15px;
+      }
+
+      .sidebar_profile .name {
+        font-size: 18px;
+        color: #333;
+      }
+
+      .sidebar_profile .email {
+        font-size: 13px;
+        color: #333;
+      }
+
+      .navbar {
+        position: fixed;
+        background-color: #fff;
+        border-radius: 8px;
+        left: 40%;
+        max-width: 500px;
+        width: 100%;
+        top: 0;
+        padding: 10px 20px;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+      }
+
+      #sidebar-open {
+        font-size: 30px;
+        color: #333;
+        cursor: pointer;
+        margin-right: 20px;
+        display: none;
+      }
+
+      .search_box {
+        max-width: 500px;
+        width: 100%;
+        border: 1px solid #aaa;
+        padding: 5px 15px;
+        border-radius: 8px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .navbar img {
+        height: 40px;
+        width: 40px;
+        margin-left: 20px;
+      }
+
+      @media screen and (max-width: 800px) {
+        .sidebar {
+          left: 0;
+          z-index: 1000;
+        }
+
+        .sidebar.close {
+          left: -100%;
+        }
+
+        #sidebar-open,
+        #sidebar-close {
+          display: block;
+        }
+
+        #lock-icon {
+          display: none;
+        }
+
+        .navbar {
+          left: 0;
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="sidebar locked">
+      <div class="logo_items flex">
+        <span class="nav_image">
+          <img
+            src="https://img.freepik.com/free-vector/colorful-letter-gradient-logo-design_474888-2309.jpg"
+            alt=""
+          />
+        </span>
+        <span class="logo_name"> NavbarThema </span>
+        <i class="bx bx-lock-alt" id="lock-icon"></i>
+        <i class="bx bx-x" id="sidebar-close"></i>
+      </div>
+
+      <div class="menu_container">
+        <div class="menu_items">
+          <ul class="menu_item">
+            <div class="menu_title flex">
+              <span class="title">Dashboard</span>
+              <span class="line"></span>
+            </div>
+            <li class="item">
+              <a href="#" class="link flex">
+                <i class="bx bx-home-alt"></i>
+                <span>Overview</span>
+              </a>
+            </li>
+            <li class="item">
+              <a href="#" class="link flex">
+                <i class="bx bx-grid-alt"></i>
+                <span>All Projects</span>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="menu_item">
+            <div class="menu_title flex">
+              <span class="title">Editor</span>
+              <span class="line"></span>
+            </div>
+            <li class="item">
+              <a href="#" class="link flex">
+                <i class="bx bxs-magic-wand"></i>
+                <span>Magic Build</span>
+              </a>
+            </li>
+            <li class="item">
+              <a href="#" class="link flex">
+                <i class="bx bx-folder"></i>
+                <span>New Project</span>
+              </a>
+            </li>
+            <li class="item">
+              <a href="#" class="link flex">
+                <i class="bx bx-cloud-upload"></i>
+                <span>Upload New</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- <ul class="menu_item">
+                        <div class="menu_title flex">
+                            <span class="title">Setting</span>
+                            <span class="line"></span>
+                        </div>
+                        <li class="item">
+                            <a href="#" class="link flex">
+                                <i class="bx bx-flag"></i>
+                                <span>Notice Board</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#" class="link flex">
+                                <i class="bx bx-award"></i>
+                                <span>Award</span>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#" class="link flex">
+                                <i class="bx bx-cog"></i>
+                                <span>Setting</span>
+                            </a>
+                        </li>
+                    </ul> -->
+        </div>
+
+        <div class="sidebar_profile flex">
+          <span class="nav_image">
+            <img
+              src="https://www.just.edu.jo/Units_and_offices/Offices/IRO/PublishingImages/Pages/contactus/1558784672.jpg"
+              alt=""
+            />
+          </span>
+          <div class="data_text">
+            <span class="name">User Name</span>
+            <div class="email">userName@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar flex">
+      <i class="bx bx-menu" id="sidebar-open"></i>
+      <input type="text" placeholder="Search..." class="search_box" />
+      <span class="nav_image">
+        <img
+          src="https://www.just.edu.jo/Units_and_offices/Offices/IRO/PublishingImages/Pages/contactus/1558784672.jpg"
+          alt=""
+        />
+      </span>
+    </nav>
+
+    <script>
+      const sidebar = document.querySelector(".sidebar");
+      const sidebarOpen = document.querySelector("#sidebar-open");
+      const sidebarClose = document.querySelector("#sidebar-close");
+      const sidebarLockBtn = document.querySelector("#lock-icon");
+
+      const toggleLock = () => {
+        sidebar.classList.toggle("locked");
+        if (!sidebar.classList.contains("locked")) {
+          sidebarLockBtn.classList.replace("bx-lock-alt", "bx-lock-open-alt");
+          sidebar.classList.add("hoverable");
+        } else {
+          sidebarLockBtn.classList.replace("bx-lock-open-alt", "bx-lock-alt");
+          sidebar.classList.remove("hoverable");
+        }
+      };
+
+      const hideSidebar = () => {
+        if (sidebar.classList.contains("hoverable")) {
+          sidebar.classList.add("close");
+        }
+      };
+
+      const showSidebar = () => {
+        if (sidebar.classList.contains("hoverable")) {
+          sidebar.classList.remove("close");
+        }
+      };
+
+      const toggleSidebar = () => {
+        sidebar.classList.toggle("close");
+      };
+
+      if (window.innerWidth < 800) {
+        sidebar.classList.add("close");
+        sidebar.classList.remove("locked");
+        sidebar.classList.remove("hoverable");
+      }
+
+      sidebarLockBtn.addEventListener("click", toggleLock);
+      sidebar.addEventListener("mouseleave", hideSidebar);
+      sidebar.addEventListener("mouseenter", showSidebar);
+      sidebarOpen.addEventListener("click", toggleSidebar);
+      sidebarClose.addEventListener("click", toggleSidebar);
+    </script>
+  </body>
+</html>
