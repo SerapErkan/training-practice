@@ -13,6 +13,9 @@ app.listen(5000, () => console.log("Api uygulaması 5000 portunda çalışıyor"
 //npm i express
 // npm i cors 
 // node script.js
+//npm i -g nodemon
+//nodemon script.js 
+
 
 // cors :Web tarayıcıları, varsayılan olarak, bir kaynağın sadece aynı kökten (origin) gelen isteklere izin verir.
 //  Başka bir kökten gelen istekler, tarayıcı tarafından engellenir.
